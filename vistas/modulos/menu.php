@@ -16,22 +16,22 @@
             <li class="header">MENU DE NAVEGACION</li>
 
             <!-- ===============MENU INICIO=================== -->
-            <li><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+            <li><a href="inicio"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
 
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-edit"></i> <span>Mantenimiento</span>
+                    <i class="fa fa-laptop"></i>
+                    <span>Mantenimiento</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i>Usuarios</li>                  
+                    <li><a href="usuarios"><i class="fa fa-circle-o"></i> Usuarios</a></li>
+                    <li><a href="sector"><i class="fa fa-circle-o"></i> Sectores</a></li>
+                    <li><a href="accionista"><i class="fa fa-circle-o"></i> Accionistas</a></li>                 
                 </ul>
             </li>
-
-            <li class="header">LABELS</li>
-            <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
         </ul>
     </section>
     <!-- /.sidebar -->
