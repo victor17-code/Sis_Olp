@@ -28,8 +28,8 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="usuarios"><i class="fa fa-circle-o"></i> Usuarios</a></li>
-                    <li><a href="sector"><i class="fa fa-circle-o"></i> Sectores</a></li>
-                    <li><a href="accionista"><i class="fa fa-circle-o"></i> Accionistas</a></li>                 
+                    <li><a href="sectores"><i class="fa fa-circle-o"></i> Sectores</a></li>
+                    <li><a href="accionistas"><i class="fa fa-circle-o"></i> Accionistas</a></li>                 
                 </ul>
             </li>
         </ul>

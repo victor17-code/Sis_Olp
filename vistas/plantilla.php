@@ -49,10 +49,12 @@
             if (
                 $_GET['ruta'] == "inicio" ||
                 $_GET['ruta'] == "usuarios" ||
-                $_GET['ruta'] == "sector"||
-                $_GET['ruta'] == "accionista"
+                $_GET['ruta'] == "sectores" ||
+                $_GET['ruta'] == "accionistas"
             ) {
                 include "modulos/" . $_GET["ruta"] . ".php";
+            }else{
+                include 'modulos/404.php';
             }
         }
 
