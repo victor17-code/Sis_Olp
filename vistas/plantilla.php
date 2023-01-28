@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -44,7 +48,7 @@
 
     <?php
 
-        if (isset($_SESSION["inicioarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {     
+        if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {     
 echo '<div class="wrapper">';
 
         include 'modulos/header.php';
@@ -55,7 +59,8 @@ echo '<div class="wrapper">';
                 $_GET['ruta'] == "inicio" ||
                 $_GET['ruta'] == "usuarios" ||
                 $_GET['ruta'] == "sectores" ||
-                $_GET['ruta'] == "accionistas"
+                $_GET['ruta'] == "accionistas" ||
+                $_GET['ruta'] == "salir"
             ) {
                 include "modulos/" . $_GET["ruta"] . ".php";
             }else{

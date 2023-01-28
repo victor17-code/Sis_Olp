@@ -21,7 +21,7 @@
 
             <div class="form-group has-feedback">
 
-                <input type="password" class="form-control" placeholder="Contraseña" name=" ingPassword" required="">
+                <input type="password" class="form-control" placeholder="Contraseña" name=" ingPassword" required=">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 
             </div>
