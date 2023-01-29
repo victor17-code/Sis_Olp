@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+
     <section class="content-header">
         <h1>
             Gestion de usuarios
@@ -11,32 +11,115 @@
         </ol>
     </section>
 
-    <!-- Main content -->
     <section class="content">
-
-        <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Title</h3>
-
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                        <i class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                        <i class="fa fa-times"></i></button>
-                </div>
+                <button class="btn btn-success" data-toggle="modal" data-target="#modalAgregarUsuario">
+                    Nuevo Usuario
+                </button>
             </div>
             <div class="box-body">
-                Start creating your amazing application!
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer">
-                Footer
-            </div>
-            <!-- /.box-footer-->
-        </div>
-        <!-- /.box -->
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombres</th>
+                            <th>Usuario</th>
+                            <th>Foto</th>
+                            <th>Pefil</th>
+                            <th>Estado</th>
+                            <th>Ultimo login</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Victor Eusebio Soto</td>
+                            <td>admin</td>
+                            <td>no hay</td>
+                            <td>Administrador</td>
+                            <td><button class="btn btn-success btn-xs">Activo</button></td>
+                            <td>12-12-2023</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
+            </div>
+        </div>
     </section>
-    <!-- /.content -->
+</div>
+
+<!-- ===============
+MODALRISTRO DE USUARIOS
+============= -->
+
+<div id="modalAgregarUsuario" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+
+            <form role="form" method="post" enctype="multipart/form-data">
+
+                <div class="modal-header" style="background: #3c8dbc; color:white;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Agregar Usario</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input type="text" class="form-control input-lg" name="nuevoNombre"
+                                    placeholder="Apellidos y Nombres" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                <input type="text" class="form-control input-lg" name="nuevoUsuario"
+                                    placeholder="Ingrese usuario" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="password" class="form-control input-lg" name="nuevoPassword"
+                                    placeholder="Contraseña" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                                <select class="form-control input-lg" name="nuevoPerfil" id="">
+                                    <option value="">Seleccionar</option>
+                                    <option value="Administrador">Administrador</option>
+                                    <option value="Especial">Especial</option>
+                                    <option value="Vendedor">Vendedor</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="panel">SUBIR FOTO</div>
+                            <input type="file" id="nuevaFoto" name="nuevaFoto">
+                            <p class="help-block">Peso maximo de la foto 200MB</p>
+                            <img src="vistas/img/plantilla/fondo-login.jpg" class="img-thumbnail" width="100px">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
 </div>
