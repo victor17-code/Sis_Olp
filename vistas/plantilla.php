@@ -26,9 +26,13 @@ session_start();
     <!--  -->
     <link rel="stylesheet" href="vistas/dist/css/skins/_all-skins.min.css">
 
+    <!-- DataTables -->
+    <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
     <!-- Google Font -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
 
     <!-- JAVA SCRIPT -->
 
@@ -42,14 +46,21 @@ session_start();
     <script src="vistas/bower_components/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
     <script src="vistas/dist/js/adminlte.min.js"></script>
+
+    <!-- DataTables -->
+    <script src="vistas/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  
+    <script src="vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
+    <script src="vistas/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini login-page">
 
     <?php
 
-        if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {     
-echo '<div class="wrapper">';
+    if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
+        echo '<div class="wrapper">';
 
         include 'modulos/header.php';
         include 'modulos/menu.php';
@@ -63,10 +74,10 @@ echo '<div class="wrapper">';
                 $_GET['ruta'] == "salir"
             ) {
                 include "modulos/" . $_GET["ruta"] . ".php";
-            }else{
+            } else {
                 include 'modulos/404.php';
             }
-        }else {
+        } else {
             include 'modulos/inicio.php';
         }
 
@@ -74,10 +85,10 @@ echo '<div class="wrapper">';
         include 'modulos/footer.php';
 
         echo '</div>';
-    }else {
+    } else {
         include 'modulos/login.php';
     }
-        ?>
+    ?>
     <!-- ======================    
         ========================= -->
 
