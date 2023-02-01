@@ -32,4 +32,12 @@ class ControladorUsuarios
             }
         }
     }
+
+
+    static public function ctrCrearUsuario(){
+
+    }
+
+
+
 }
