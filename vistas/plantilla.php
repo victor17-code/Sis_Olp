@@ -50,9 +50,11 @@ session_start();
     <!-- DataTables -->
     <script src="vistas/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-  
+  <!-- DataTables Responsive para moviles-->
     <script src="vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
     <script src="vistas/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
+    <!-- SweetAlert 2 -->
+    <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini login-page">
