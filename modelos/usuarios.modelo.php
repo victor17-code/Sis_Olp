@@ -15,4 +15,25 @@ class ModeloUsuarios
         $stmt->execute();
         return $stmt->fetch();
     }
+
+    /*=======================
+    REGISTRAR USUARIOS
+    =========================*/
+
+    static public function mdlIngresarUsuario($table, $datos){
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $table(nombres,usuario,password,perfil) VALUES (
+            :nombres, :usuario, :password, :perfil)");
+
+            $stmt->bindParam(":nombres", $datos['nombres'], PDO::PARAM_STR);
+            $stmt->bindParam(":usuario", $datos['usuario'], PDO::PARAM_STR);
+            $stmt->bindParam(":password", $datos['password'], PDO::PARAM_STR);
+            $stmt->bindParam(":perfil", $datos['perfil'], PDO::PARAM_STR);
+
+            if ($stmt->execute()) {
+                return "ok";
+            }else{
+                return "error";
+            }
+
+    }
 }

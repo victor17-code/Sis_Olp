@@ -19,10 +19,10 @@
                 </button>
             </div>
             <div class="box-body">
-                <table class="table table-bordered table-striped dt-responsive tablas">
+                <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th style="width: 3px;">#</th>
                             <th>Nombres</th>
                             <th>Usuario</th>
                             <th>Foto</th>
