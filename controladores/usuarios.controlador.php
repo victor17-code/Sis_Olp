@@ -50,6 +50,22 @@ class ControladorUsuarios
                     list($ancho, $alto) = getimagesize($_FILES["nuevaFoto"]["temp_name"]);
                     $nuevoancho = 500;
                     $nuevoAlto = 500;
+
+                    /* CREANDO DIRECTORIO */
+
+                    $directorio = "vistas/img/usuarios/".$_POST["nuevoUsuario"];
+                    mkdir($directorio, 0755);
+
+                    /** SEGUN EL TIPO DE IMAGEN */
+                    if ($_FILES["nuevaFoto"]["type"] == "image/jpeg") {
+                        # guardar la imgen en el directorio
+
+                        $aleatorio = mt_rand(100, 999);
+                        $ruta = "vistas/img/usuarios".$_POST["nuevoUsuario"]."/".$aleatorio."jpg";
+
+                        $origen = imagecreatefromjpeg($_FILES["nuevaFoto"]["temp_name"])
+                    }
+
                 }
 
                 $tabla = "usuarios";
