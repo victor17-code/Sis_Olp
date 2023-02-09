@@ -107,9 +107,9 @@ MODALRISTRO DE USUARIOS
                         </div>
                         <div class="form-group">
                             <div class="panel">SUBIR FOTO</div>
-                            <input type="file" id="nuevaFoto" name="nuevaFoto">
-                            <p class="help-block">Peso maximo de la foto 200MB</p>
-                            <img src="vistas/img/plantilla/fondo-login.jpg" class="img-thumbnail" width="100px">
+                            <input type="file" class="nuevaFoto" name="nuevaFoto">
+                            <p class="help-block">Peso maximo de la foto 2 MB</p>
+                            <img src="vistas/img/plantilla/fondo-login.jpg" class="img-thumbnail previsualizar" width="100px">
                         </div>
                     </div>
                 </div>
