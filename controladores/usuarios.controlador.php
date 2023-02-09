@@ -42,6 +42,16 @@ class ControladorUsuarios
                 preg_match('/^[a-zA-Z0-9]+$/', $_POST['nuevoUsuario']) &&
                 preg_match('/^[a-zA-Z0-9]+$/', $_POST['nuevoPassword'])
             ) {
+              /*=====================================
+                      VALIDAR IMAGEN
+              ======================================== */
+                if(isset($_FILES["nuevaFoto"]["temp_name"])){
+
+                    list($ancho, $alto) = getimagesize($_FILES["nuevaFoto"]["temp_name"]);
+                    $nuevoancho = 500;
+                    $nuevoAlto = 500;
+                }
+
                 $tabla = "usuarios";
 
                 $datos = array(
