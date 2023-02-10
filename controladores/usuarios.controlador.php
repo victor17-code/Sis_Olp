@@ -63,7 +63,7 @@ class ControladorUsuarios
                         $aleatorio = mt_rand(100, 999);
                         $ruta = "vistas/img/usuarios".$_POST["nuevoUsuario"]."/".$aleatorio."jpg";
 
-                        $origen = imagecreatefromjpeg($_FILES["nuevaFoto"]["temp_name"])
+                        $origen = imagecreatefromjpeg($_FILES["nuevaFoto"]["temp_name"]);
                     }
 
                 }
