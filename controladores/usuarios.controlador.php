@@ -45,9 +45,12 @@ class ControladorUsuarios
               /*=====================================
                       VALIDAR IMAGEN
               ======================================== */
-                if(isset($_FILES["nuevaFoto"]["temp_name"])){
 
-                    list($ancho, $alto) = getimagesize($_FILES["nuevaFoto"]["temp_name"]);
+              $ruta = "";
+
+                if(isset($_FILES["nuevaFoto"]["tmp_name"])){
+
+                    list($ancho, $alto) = getimagesize($_FILES["nuevaFoto"]["tmp_name"]);
                     $nuevoancho = 500;
                     $nuevoAlto = 500;
 
@@ -61,9 +64,15 @@ class ControladorUsuarios
                         # guardar la imgen en el directorio
 
                         $aleatorio = mt_rand(100, 999);
-                        $ruta = "vistas/img/usuarios".$_POST["nuevoUsuario"]."/".$aleatorio."jpg";
+                        $ruta = "vistas/img/usuarios/".$_POST["nuevoUsuario"]."/".$aleatorio.".jpg";                                            
+                        $origen = imagecreatefromjpeg($_FILES["nuevaFoto"]["tmp_name"]);
+                        var_dump($origen);
+                        $destino = imagecreatetruecolor($nuevoancho, $nuevoAlto);
+                        imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoancho, $nuevoAlto, $ancho, $alto);
 
-                        $origen = imagecreatefromjpeg($_FILES["nuevaFoto"]["temp_name"]);
+                        imagejpeg($destino, $ruta);
+
+
                     }
 
                 }
@@ -109,6 +118,7 @@ class ControladorUsuarios
                 });
                 </script>';
             }
+            
         }
     }
 }
