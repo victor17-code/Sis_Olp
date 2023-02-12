@@ -80,8 +80,8 @@
                             }
                             ?>
                             <p>
-                                Victor Eusebio Soto - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                     Victor Eusebio Soto
+                                <small>Miembre desde Nov. 2012</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
