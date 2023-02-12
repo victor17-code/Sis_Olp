@@ -14,6 +14,8 @@ class ControladorUsuarios
                 preg_match('/^[a-zA-Z0-9]+$/', $_POST['ingPassword'])
             ) {
 
+                $encriptar = crypt($_POST['ingPassword'], '$2a$07$usesomesillystringforsalt$');
+
                 $table = "usuarios";
 
                 $item = "usuario";
@@ -21,8 +23,11 @@ class ControladorUsuarios
 
                 $respuesta =  ModeloUsuarios::mdlMostrarUsuarios($table, $item, $valor);
 
-                if ($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $_POST["ingPassword"]) {
+                if ($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar) {
+
                     $_SESSION["iniciarSesion"] = "ok";
+                    $_SESSION["nombres"] = $respuesta['nombres'];
+                    $_SESSION["foto"] = $respuesta['foto'];
                     echo '<script>
                         window.location = "inicio";
                         </script>';
@@ -64,9 +69,9 @@ class ControladorUsuarios
                         # guardar la imgen en el directorio
 
                         $aleatorio = mt_rand(100, 999);
-                        $ruta = "vistas/img/usuarios/".$_POST["nuevoUsuario"]."/".$aleatorio.".jpg";                                            
+                        $ruta = "vistas/img/usuarios/".$_POST["nuevoUsuario"]."/".$aleatorio.".jpg";
+                        var_dump($ruta);                                           
                         $origen = imagecreatefromjpeg($_FILES["nuevaFoto"]["tmp_name"]);
-                        var_dump($origen);
                         $destino = imagecreatetruecolor($nuevoancho, $nuevoAlto);
                         imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoancho, $nuevoAlto, $ancho, $alto);
 
@@ -75,15 +80,33 @@ class ControladorUsuarios
 
                     }
 
+                    /** SEGUN EL TIPO DE IMAGEN */
+                    if ($_FILES["nuevaFoto"]["type"] == "image/png") {
+                        # guardar la imgen en el directorio
+
+                        $aleatorio = mt_rand(100, 999);
+                        $ruta = "vistas/img/usuarios/".$_POST["nuevoUsuario"]."/".$aleatorio.".jpg";                                        
+                        $origen = imagecreatefrompng($_FILES["nuevaFoto"]["tmp_name"]);
+                        $destino = imagecreatetruecolor($nuevoancho, $nuevoAlto);
+                        imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoancho, $nuevoAlto, $ancho, $alto);
+
+                        imagepng($destino, $ruta);
+
+
+                    }
+
                 }
 
                 $tabla = "usuarios";
 
+                $encriptar = crypt($_POST['nuevoPassword'], '$2a$07$usesomesillystringforsalt$');
+
                 $datos = array(
                     "nombres" => $_POST['nuevoNombre'],
                     "usuario" => $_POST['nuevoUsuario'],
-                    "password" => $_POST['nuevoPassword'],
-                    "perfil" => $_POST['nuevoPerfil']
+                    "password" => $encriptar,
+                    "perfil" => $_POST['nuevoPerfil'],
+                    "foto" => $ruta
                 );
 
                 $respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
