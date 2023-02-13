@@ -69,8 +69,7 @@ class ControladorUsuarios
                         # guardar la imgen en el directorio
 
                         $aleatorio = mt_rand(100, 999);
-                        $ruta = "vistas/img/usuarios/".$_POST["nuevoUsuario"]."/".$aleatorio.".jpg";
-                        var_dump($ruta);                                           
+                        $ruta = "vistas/img/usuarios/".$_POST["nuevoUsuario"]."/".$aleatorio.".jpg";                                         
                         $origen = imagecreatefromjpeg($_FILES["nuevaFoto"]["tmp_name"]);
                         $destino = imagecreatetruecolor($nuevoancho, $nuevoAlto);
                         imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoancho, $nuevoAlto, $ancho, $alto);
