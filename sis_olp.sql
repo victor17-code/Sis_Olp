@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-01-2023 a las 19:00:47
--- Versión del servidor: 10.4.25-MariaDB
--- Versión de PHP: 8.1.10
+-- Tiempo de generación: 15-02-2023 a las 13:05:52
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombres`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(1, 'Administrador', 'admin', 'admin123', 'Administrador', '', 1, '2023-01-28 16:35:17', '2023-01-28 16:50:38');
+(1, 'Administrador', 'admin', 'admin123', 'Administrador', '', 1, '2023-01-28 16:35:17', '2023-01-28 16:50:38'),
+(10, 'VICTOR', 'VICTOR', '$2a$07$usesomesillystringforeRZX.Cl/IFsZcGZ6/DOjyjZycRsW6a.6', 'Administrador', 'vistas/img/usuarios/VICTOR/927.jpg', 0, '0000-00-00 00:00:00', '2023-02-12 01:30:52'),
+(11, 'RICARDO', 'RICARDO', '$2a$07$usesomesillystringforeBDogzr89aihcF2qsFbyls6kQoJUSsGu', 'Especial', 'vistas/img/usuarios/RICARDO/687.jpg', 0, '0000-00-00 00:00:00', '2023-02-12 06:30:45');
 
 --
 -- Índices para tablas volcadas
@@ -64,7 +66,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
