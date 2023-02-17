@@ -33,3 +33,13 @@ $(".nuevaFoto").change(function(){
   }
 
 });
+
+/*==========================
+EDITAR USUARIO
+==============================*/
+
+
+$(".bntEditarUsuario").click(function(){debugger
+ var idUsuario = $(this).attr("idUsuario");
+ console.log("idUsuario es:", idUsuario);
+})
