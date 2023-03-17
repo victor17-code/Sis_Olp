@@ -56,6 +56,12 @@ $(".bntEditarUsuario").click(function () {
         $("#editarNombre").val(respuesta["nombres"]);
         $("#editarUsuario").val(respuesta["usuario"]);
         $("#editarPerfil").html(respuesta["perfil"]);
+        $("#editarPerfil").val(respuesta["perfil"]);
+        $("#passwordActual").val(respuesta["password"]);
+        $("#fotoActual").val(respuesta["foto"]);
+
+        if(respuesta["foto"] != "")
+        $(".previsualizar").attr("src",respuesta["foto"] )
       }
     });
 })

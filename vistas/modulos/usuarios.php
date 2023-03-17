@@ -35,41 +35,41 @@
                     <tbody>
 
                         <?php
-                    $item = null;
-                    $valor = null;
+                        $item = null;
+                        $valor = null;
 
-                    $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
-                    foreach($usuarios as $key => $value){
+                        $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
+                        foreach ($usuarios as $key => $value) {
 
-                        echo '<tr>
+                            echo '<tr>
                         <td>1</td>
-                        <td>'.$value["nombres"].'</td>
-                        <td>'.$value["usuario"].'</td>';
+                        <td>' . $value["nombres"] . '</td>
+                        <td>' . $value["usuario"] . '</td>';
 
-                        if($value["foto"] != "") {
-                            echo '<td><img src="'.$value["foto"].'"
+                            if ($value["foto"] != "") {
+                                echo '<td><img src="' . $value["foto"] . '"
                             class="img-thumbnail" width="40px"></td>';
-                        }else{
-                            echo '<td><img src="vistas/img/usuarios/default/anonimo.png"
+                            } else {
+                                echo '<td><img src="vistas/img/usuarios/default/anonimo.png"
                             class="img-thumbnail" width="40px"></td>';
-                        }
+                            }
 
 
-                       
-                        echo '<td>'.$value["perfil"].'</td>
+
+                            echo '<td>' . $value["perfil"] . '</td>
                         <td><button class="btn btn-success btn-xs">Activo</button></td>
-                        <td>'.$value["ultimo_login"].'</td>
+                        <td>' . $value["ultimo_login"] . '</td>
 
 
                         <td>
                             <div class="btn-group">
-                                <button class="btn btn-warning bntEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
+                                <button class="btn btn-warning bntEditarUsuario" idUsuario="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
                                 <button class="btn btn-danger"><i class="fa fa-times"></i></button>
                             </div>
                         </td>
                     </tr>';
-                    }
-                    ?>
+                        }
+                        ?>
 
                     </tbody>
                 </table>
@@ -99,22 +99,19 @@ MODALRISTRO DE USUARIOS
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoNombre"
-                                    placeholder="Apellidos y Nombres" required>
+                                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Apellidos y Nombres" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoUsuario"
-                                    placeholder="Ingrese usuario" required>
+                                <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingrese usuario" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control input-lg" name="nuevoPassword"
-                                    placeholder="Contraseña" required>
+                                <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Contraseña" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -132,8 +129,7 @@ MODALRISTRO DE USUARIOS
                             <div class="panel">SUBIR FOTO</div>
                             <input type="file" class="nuevaFoto" name="nuevaFoto">
                             <p class="help-block">Peso maximo de la foto 2 MB</p>
-                            <img src="vistas/img/plantilla/fondo-login.jpg" class="img-thumbnail previsualizar"
-                                width="100px">
+                            <img src="vistas/img/plantilla/fondo-login.jpg" class="img-thumbnail previsualizar" width="100px">
                         </div>
                     </div>
                 </div>
@@ -173,22 +169,21 @@ IDITAR USUARIO
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre"
-                                    value="" required>
+                                <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario"
-                                    value="" required>
+                                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control input-lg" id="editarPassword" name="editarPassword"
-                                    placeholder="Escriba Nueva Contraseña" required>
+                                <input type="password" class="form-control input-lg" id="editarPassword" name="editarPassword" placeholder="Escriba Nueva Contraseña" required>
+
+                                <input type="hidden" id="passwordActual" name="passwordActual">
                             </div>
                         </div>
                         <div class="form-group">
@@ -206,8 +201,8 @@ IDITAR USUARIO
                             <div class="panel">SUBIR FOTO</div>
                             <input type="file" class="nuevaFoto" name="editarFoto">
                             <p class="help-block">Peso maximo de la foto 2 MB</p>
-                            <img src="vistas/img/plantilla/fondo-login.jpg" class="img-thumbnail previsualizar"
-                                width="100px">
+                            <img src="vistas/img/plantilla/fondo-login.jpg" class="img-thumbnail previsualizar" width="100px">
+                            <input type="hidden" id="fotoActual" name="fotoActual">
                         </div>
                     </div>
                 </div>
@@ -217,8 +212,8 @@ IDITAR USUARIO
                 </div>
 
                 <?php
-              //  $crearUsuario = new ControladorUsuarios();
-              //  $crearUsuario->ctrCrearUsuario();
+                $editarUsuario = new ControladorUsuarios();
+                $editarUsuario->ctrEditarUsuario();
                 ?>
 
             </form>
